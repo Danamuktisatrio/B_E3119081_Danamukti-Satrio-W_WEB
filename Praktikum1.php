@@ -1,26 +1,16 @@
 <?php
 class Car {
-
-    //properties
-    public $comp;
-    public $color = 'beige';
-    public $hasSunRoof = true;
-
-    //method = hello
-    public function hello()
+    //private
+    public $model;
+    public function getModel()
     {
-        return "Beep I am a <i>" . $this->comp . "</i>, and I am <i>" . $this->color;
+        return "The car model is " . $this->model;
     }
 }
 
-//create object di class.
-$bmw = new Car();
 $mercedes = new Car();
 
-//set values dari class properties.
-$bmw->color = 'blue';
-$bmw->comp = 'BMW';
-$mercedes->comp = 'Mercedes Benz';
+////akses property dari luar class.
+$mercedes->model = "Mercedes benz";
 
-//call hello method untuk $bmw object.
-echo $bmw->hello();
+echo $mercedes->getModel();

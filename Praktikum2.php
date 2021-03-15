@@ -1,29 +1,25 @@
 <?php
 class Car {
-
-    public $tank;
-    // Add gallons of fuel to the tank when we fill it.
-    public function fill($float)
+    //private
+    private $model;
+    public function getModel()
     {
-        $this->tank += $float;
-        return $this;
+        return "The car model is " . $this->model;
     }
-    // Substract gallons of fuel from the tank as we ride the car.
-    public function ride($float)
-    {
-        $miles = $float;
-        $gallons = $miles / 50;
-        $this->tank -= ($gallons);
-        return $this;
+
+    //perbaikan 'menambahkan fungsi setter untuk mengakses Property dengan Visibility Private'
+    public function setModel($model){
+        $this->model = $model;
     }
 }
 
-// Create a new object from the Car class.
-$bmw = new Car();
+$mercedes = new Car();
 
-// Add 10 gallons of fuel, then ride 40 miles,
-// and get the number of gallons in the tank.
-$tank = $bmw->fill(10)->ride(40)->tank;
+////akses property dari luar class.
 
-// Printout.
-echo "The number of gallons left in the tank: " . $tank . "gal.";
+// $mercedes->model = "Mercedes benz"; //jika mengakses dari luar kelas akan terjadi error
+
+//perbaikan
+$mercedes->setModel("Mercedes benz");
+
+echo $mercedes->getModel();
